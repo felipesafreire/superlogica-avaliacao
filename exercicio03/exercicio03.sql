@@ -31,7 +31,6 @@ INSERT INTO `info` (`id`, `cpf`, `genero`, `ano_nascimento`) VALUES (4, '2114245
 INSERT INTO `info` (`id`, `cpf`, `genero`, `ano_nascimento`) VALUES (5, '83257946074', 'F', '1970');
 INSERT INTO `info` (`id`, `cpf`, `genero`, `ano_nascimento`) VALUES (6, '07583509025', 'M', '1972');
 
-
 SELECT
 	CONCAT(a.nome, ' - ', b.genero) AS usuario, 
 	CASE 
