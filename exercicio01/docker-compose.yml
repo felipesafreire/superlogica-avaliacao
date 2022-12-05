@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: superlogica-app
+    image: arthurelinux/php74apache
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8090:80
+    volumes:
+      - .:/var/www/html
+    links:
+      - db
+    depends_on:
+      - db
+    tty: true
+
+  db:
+    container_name: superlogica-db
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 33062:3306
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d
+      - ./database/data:/var/lib/mysql
